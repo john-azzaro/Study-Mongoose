@@ -18,15 +18,17 @@ In more technical terms, Mongoose provides a modeling enviroment for your data, 
 
 ## How do you connect with MongoDB using Mongoose?
 
+<dl>
 
 ### STEP 1: Install the Node package "mongoose"
 <dd>
-
 ```
     npm install mongoose
 ```
 </dd>
 
+
+</dl>
 
 
 <br>
