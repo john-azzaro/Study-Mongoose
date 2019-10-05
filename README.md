@@ -21,11 +21,19 @@ In more technical terms, Mongoose provides a modeling enviroment for your data, 
 <dl>
 
 ### STEP 1: Install the Node package "mongoose"
-<dd>
+-----
+<dd>First, install mongoose package from the NPM registry.
+
 ```
     npm install mongoose
 ```
 </dd>
+
+
+
+
+
+
 
 
 </dl>
