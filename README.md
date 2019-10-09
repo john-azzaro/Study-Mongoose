@@ -5,6 +5,7 @@
 Here's some questions covered in the study:
 
 * [What is Mongoose](#)
+* [How do you connect with MongoDB using Mongoose?](#How-do-you-connect-with-MongoDB-using-Mongoose)
 
 <br>
 
