@@ -40,21 +40,8 @@ This is pretty much a standard require of the mongoose package you previusoly in
 ```
 </dd>
 
-### STEP 3: Connect to your database
------
-When you connect to a database, you call mongoose with the .connect method (i.e. ``` mongoose.connect()```). Then, you want to pass a connection string that references the mongoDB database.  In the example below, you have the localhost to conenct to your local machine for.  However, note that when the application is deployed to a production enviroment, you will be using a different connection string.  Also note that if the *sandbox* database is not there, it will be created.
 
-```JavaScript
-    mongoose.connect('mongodb://localhost/sandbox')                        // connect to local mongodb database.
-```
 
-In addition to this connection, we need a way to check whether or not we are connected to our database.  To do this, you need to chain a ```.then()```, which will be a promise that, when fulfilled, will log "connected to MongoDB...".  And if there is an error connecting to the database, use a ``` .catch()``` to log an error message and the error.
-
-```JavaScript
-    mongoose.connect('mongodb://localhost/sandbox')
-        .then( () => console.log('Connected to MongoDB...'))                          // successful connection.
-        .catch( (err) => console.log('Could not connect to MongoDB...', err));        // unsuccessful connection.
-```
 
 
 </dl>
