@@ -55,20 +55,32 @@ Although this is legacy code and isnt needed with Mongoose 5+, you should insert
 ```
 </dd>
 
-### STEP 4: Create a "config.js" file for URL's and the Port for the application to run on: 
+### STEP 4: Import values from config.js file:
 ------
 </dd>
 
-The config.js file is where you can control the constants for the entire app
+Because The config.js file is where you can control the constants for the entire app. In this way, you can also create development environment variables if
+that works well for you.  Here, we just want to plan for that eventuality.  So first, create a config file. 
 ```
     config.js
 ```
-Inside the config.js file, we have 3 constants: the database url, the test database url, and the port number we want the app to listen for (i.e. 8080).
+Then inside the config.js file, we have 3 constants: the database url, the test database url, and the port number we want the app to listen for (i.e. 8080).
+
+
+
+
+
 ```JavaScript
     exports.DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost/restaurants-app";
     exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL || "mongodb://localhost/test-restaurants-app";
     exports.PORT = process.env.PORT || 8080;
 ```
+
+```Javascript
+const { PORT, DATABASE_URL } = require("./config");
+const { Restaurant } = require("./models");
+```
+
 </dd>
 
 
@@ -79,7 +91,7 @@ Inside the config.js file, we have 3 constants: the database url, the test datab
 
 
 
-### STEP 4: Import values from config.js file:
+### STEP 4: 
 ------
 </dd>
 
