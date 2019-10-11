@@ -42,16 +42,50 @@ This is pretty much a standard importation of the mongoose package you previousl
 ```
 </dd>
 
-### STEP 3: Add ES6 Promise support:
+### STEP 3: Configure Mongoose to use ES6 Promises:
 ------
 <dd>
 
 Although this is legacy code and isnt needed with Mongoose 5+, you should insert this statement to make Mongoose use built-in ES6 promises.
 ```JavaScript
-    const express = require('express')
+    const express = require('express');
     const mongoose = require('mongoose');
 
     mongoose.Promise = global.Promise;                                  // Add ES6 Promise support.
+```
+</dd>
+
+### STEP 4: Create a "config.js" file for URL's and the Port for the application to run on: 
+------
+</dd>
+
+The config.js file is where you can control the constants for the entire app
+```
+    config.js
+```
+Inside the config.js file, we have 3 constants: the database url, the test database url, and the port number we want the app to listen for (i.e. 8080).
+```JavaScript
+    exports.DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost/restaurants-app";
+    exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL || "mongodb://localhost/test-restaurants-app";
+    exports.PORT = process.env.PORT || 8080;
+```
+</dd>
+
+
+</dl>
+
+
+
+
+
+
+### STEP 4: Import values from config.js file:
+------
+</dd>
+
+In order
+```JavaScript
+
 ```
 </dd>
 
@@ -64,8 +98,6 @@ Although this is legacy code and isnt needed with Mongoose 5+, you should insert
 
 ```
 </dd>
-
-
 
 
 </dl>
