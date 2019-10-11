@@ -71,7 +71,7 @@ Then inside the config.js file, we have 3 constants: the database url, the test 
     exports.PORT = process.env.PORT || 8080;
 ```
 
-Finally, we import the values from the config.js file to the server.js file.  We simple import and destructure the constants
+Finally, we import the values from the config.js file to the server.js file.  We simply import from the config file and pull the variables we want (i.e. PORT and DATABASE_URL).
 ```Javascript
     const express = require('express');
     const mongoose = require('mongoose');
