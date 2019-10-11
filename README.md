@@ -37,7 +37,8 @@ Install mongoose from node package manager.
 
 This is pretty much a standard importation of the mongoose package you previously installed to your dependencies.
 ```JavaScript
-    const mongoose = require('mongoose');                                               // require mongoose.
+    const express = require('express')
+    const mongoose = require('mongoose');                                    // require mongoose.
 ```
 </dd>
 
@@ -47,7 +48,10 @@ This is pretty much a standard importation of the mongoose package you previousl
 
 Although this is legacy code and isnt needed with Mongoose 5+, you should insert this statement to make Mongoose use built-in ES6 promises.
 ```JavaScript
-    mongoose.Promise = global.Promise;
+    const express = require('express')
+    const mongoose = require('mongoose');
+
+    mongoose.Promise = global.Promise;                                  // Add ES6 Promise support.
 ```
 </dd>
 
