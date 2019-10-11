@@ -57,7 +57,7 @@ Although this is legacy code and isnt needed with Mongoose 5+, you should insert
 
 ### STEP 4: Import values from config.js file:
 ------
-</dd>
+<dd>
 
 Because the config.js file is where you can control the constants for the entire app. In this way, you can also create development environment variables if
 needed. So first, create a config.js file. 
