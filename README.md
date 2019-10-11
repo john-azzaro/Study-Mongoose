@@ -23,22 +23,31 @@ In more technical terms, Mongoose provides a modeling enviroment for your data, 
 
 ### STEP 1: Install the Node package "mongoose":
 -----
-<dd>
+
 
 ```
     npm install mongoose
 ```
-</dd>
+
 
 ### STEP 2: Import mongoose into your server.js file:
 ------
 This is pretty much a standard require of the mongoose package you previusoly installed to your dependencies.
-<dd>
+
 
 ```JavaScript
     const mongoose = require('mongoose');                                               // require mongoose.
 ```
-</dd>
+
+
+### STEP 3: 
+------
+This is pretty much a standard require of the mongoose package you previusoly installed to your dependencies.
+
+
+```JavaScript
+    const mongoose = require('mongoose');                                               // require mongoose.
+```
 
 
 
