@@ -23,17 +23,21 @@ In more technical terms, Mongoose provides a modeling enviroment for your data, 
 
 ### STEP 1: Install the Node package "mongoose":
 -----
+<dd>
 Install mongoose from node package manager.
 ```
     npm install mongoose
 ```
+</dd>
 
 ### STEP 2: Import mongoose into your server.js file:
 ------
+<dd>
 This is pretty much a standard importation of the mongoose package you previously installed to your dependencies.
 ```JavaScript
     const mongoose = require('mongoose');                                               // require mongoose.
 ```
+</dd>
 
 ### STEP 3: Add "mongoose.Promise" for ES6 Promise support:
 ------
@@ -41,15 +45,17 @@ Although this is legacy code and isnt needed with Mongoose 5+, you should insert
 ```JavaScript
     mongoose.Promise = global.Promise;
 ```
+</dd>
 
 ### STEP : :
 ------
-
+</dd>
 
 
 ```JavaScript
 
 ```
+</dd>
 
 
 
