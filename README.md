@@ -30,7 +30,7 @@ In more technical terms, Mongoose provides a modeling enviroment for your data, 
 ```
 </dd>
 
-### STEP 2: Require the mongoose package in your server.js file:
+### STEP 2: Import mongoose into your server.js file:
 ------
 This is pretty much a standard require of the mongoose package you previusoly installed to your dependencies.
 <dd>
