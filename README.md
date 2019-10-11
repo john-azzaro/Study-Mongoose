@@ -78,7 +78,7 @@ And then finally, we import the values from the config.js file to the server.js 
 
     mongoose.Promise = global.Promise;
 
-    const { PORT, DATABASE_URL } = require("./config");   // import constants PORT and DATABASE_URL from config.js.
+    const { PORT, DATABASE_URL } = require("./config");      // import PORT and DATABASE_URL from config.js.
 ```
 
 </dd>
