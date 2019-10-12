@@ -59,12 +59,15 @@ Although this is legacy code and isnt needed with Mongoose 5+, you should insert
 ------
 <dd>
 
-Because the config.js file is where you can control the constants for the entire app. In this way, you can also create development environment variables if
+1. Because the config.js file is where you can control the constants for the entire app. In this way, you can also create development environment variables if
 needed. So first, create a config.js file. 
 ```
     config.js
 ```
-Then inside the config.js file, we have 3 constants: the database url, the test database url, and the port number we want the app to listen for (i.e. 8080). This helps us easily find the variables when needed.
+
+<br>
+
+2. Then inside the config.js file, we have 3 constants: the database url, the test database url, and the port number we want the app to listen for (i.e. 8080). This helps us easily find the variables when needed.
 
 > NOTE: If you want to set an environment variable, you can do so in TWO ways: Temporarily before you run the program OR set for the complete session. In the case of setting your environment variable temporarily: ```PORT=3000 node server.js```. In the case an environment variable for the complete session: ```export PORT=3000 node server.js```.
 ```JavaScript
@@ -73,7 +76,9 @@ Then inside the config.js file, we have 3 constants: the database url, the test 
     exports.PORT = process.env.PORT || 8080;
 ```
 
-Finally, we import the values from the config.js file to the server.js file.  We simply import from the config file and pull the variables we want (i.e. PORT and DATABASE_URL).
+<br>
+
+3. Finally, we import the values from the config.js file to the server.js file.  We simply import from the config file and pull the variables we want (i.e. PORT and DATABASE_URL).
 ```Javascript
     const express = require('express');
     const mongoose = require('mongoose');
@@ -85,15 +90,39 @@ Finally, we import the values from the config.js file to the server.js file.  We
 
 </dd>
 
-### STEP 5: 
+### STEP 5: Create a "runServer" function to connect to database and run HTTP server
 ------
 </dd>
+
+So essentially the runServer function will connect to the MongoDB database and run the HTTP server in unison.  It does this in a specific order:
+1. Mongoose connects to our database using the URL's we provided in the config.js file.
+2. Listen for connections on the ports we specified (i.e. 8080 OR other specified env variable port).
+3. IF successful, 
 
 
 
 
 ```JavaScript
+    let server;
 
+    function runServer(databaseUrl, port=PORT) {
+        return new Promise((resolve, reject) => {
+            mongoose.connect(databaseUrl, err => {
+                if (err) {
+                    return reject(err);
+                }       
+
+                server = app.listen(port, () => {
+                    console.log(`Your app is listening on port ${port}`);
+                    resolve();
+                })
+                .on('error', err => {
+                    mongoose.disconnect();
+                    reject(err);
+                });
+            });
+        });
+    }
 ```
 </dd>
 
