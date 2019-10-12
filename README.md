@@ -37,8 +37,8 @@ Install mongoose from node package manager.
 
 This is pretty much a standard importation of the mongoose package you previously installed to your dependencies.
 ```JavaScript
-    const express = require('express')                                       // import express.
-    const mongoose = require('mongoose');                                    // import mongoose.
+    const express = require('express')                                               // import express.
+    const mongoose = require('mongoose');                                            // import mongoose.
 ```
 </dd>
 
@@ -51,7 +51,7 @@ Although this is legacy code and isnt needed with Mongoose 5+, you should insert
     const express = require('express');
     const mongoose = require('mongoose');
 
-    mongoose.Promise = global.Promise;                                      // Add ES6 Promise support.
+    mongoose.Promise = global.Promise;                                         // Add ES6 Promise support.
 ```
 </dd>
 
@@ -85,7 +85,7 @@ needed. So first, create a config.js file.
 
     mongoose.Promise = global.Promise;
 
-    const { PORT, DATABASE_URL } = require("./config");      // import PORT and DATABASE_URL from config.js.
+    const { PORT, DATABASE_URL } = require("./config");       // import PORT and DATABASE_URL from config.js.
 ```
 
 </dd>
@@ -97,13 +97,10 @@ needed. So first, create a config.js file.
 So essentially the runServer function will connect to the MongoDB database and run the HTTP server in unison.  It does this in a specific order:
 1. Mongoose connects to our database using the URL's we provided in the config.js file.
 2. Listen for connections on the ports we specified (i.e. 8080 OR other specified env variable port).
-3. IF successful, 
-
-
-
+3. If successful, call a callback function that connection worked. If unsuccessful, return error.
 
 ```JavaScript
-    let server;                                                    // server object declared OUTSIDE Run and Close
+    let server;                                                    // server object declared OUTSIDE Run and Close.
  
     function runServer(databaseUrl, port=PORT) {                   // To Run server, pass 
         return new Promise((resolve, reject) => {                  // return Promise in which...
@@ -112,7 +109,7 @@ So essentially the runServer function will connect to the MongoDB database and r
                     return reject(err);                            // ... return reject.
                 }       
 
-                server = app.listen(port, () => {                  // Listen for new connection to the configured port.  
+                server = app.listen(port, () => {                  // Listen for connection to configured port.  
                     console.log(`Listening on port ${port}`);      // ... and log connection in terminal.
                     resolve();                                     // and then the promise is resolved!
                 })
@@ -124,6 +121,7 @@ So essentially the runServer function will connect to the MongoDB database and r
         });
     }
 ```
+
 </dd>
 
 
