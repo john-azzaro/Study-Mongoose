@@ -100,9 +100,9 @@ So essentially the runServer function will connect to the MongoDB database and r
 3. If successful, call a callback function that connection worked. If unsuccessful, return error.
 
 ```JavaScript
-    let server;                                                    // server object declared OUTSIDE Run and Close.
+    let server;                                                    // server declared OUTSIDE Run and Close.
  
-    function runServer(databaseUrl, port=PORT) {                   // To Run server, pass 
+    function runServer(databaseUrl, port=PORT) {                   // To Run server: 
         return new Promise((resolve, reject) => {                  // return Promise in which...
             mongoose.connect(databaseUrl, err => {                 // Mongoose connects to database:
                 if (err) {                                         // If there is an error... 
@@ -124,7 +124,28 @@ So essentially the runServer function will connect to the MongoDB database and r
 
 </dd>
 
+### STEP 6: Create a "closeServer" to disconnect from database and close app:
+------
+</dd>
 
+This closes the app as well as disconnects from the database. This also returns a promise, which is doen for testing, and accesses the server object which was created in runServer.
+
+```JavaScript
+    function closeServer() {                                     // To close server:
+    return mongoose.disconnect().then(() => {                    // disconnect and then...
+        return new Promise((resolve, reject) => {                // return a promise which...
+        console.log("Closing server");                           // ... will log "closing server"...
+        server.close(err => {                                    // and close the server...
+            if (err) {                                           // and if there is an error, reject...
+            return reject(err);                                  
+            }
+            resolve();                                           // else resolve.
+        });
+        });
+    });
+    }
+```
+</dd>
 
 
 
