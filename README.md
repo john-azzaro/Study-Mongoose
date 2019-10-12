@@ -70,24 +70,21 @@ Then inside the config.js file, we have 3 constants: the database url, the test 
     exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL || "mongodb://localhost/test-restaurants-app";
     exports.PORT = process.env.PORT || 8080;
 ```
-
-#### How do you set environment variables?
-
-<dd>
-
-Now if you want to set an environment variable, you can do so in TWO ways: Temporarily before you run the program OR set for the complete session.
-
-In the case of setting your environment variable temporarily:
 ```
-    PORT=3000 node server.js
-```
-In the case an environment variable for the complete session:
-```
-    export PORT=3000
-    node server.js
-```
+    How do you set environment variables?
 
-</dd>
+    Now if you want to set an environment variable, you can do so in TWO ways: Temporarily before you run the program OR set for the complete session.
+
+    In the case of setting your environment variable temporarily:
+
+        PORT=3000 node server.js
+
+    In the case an environment variable for the complete session:
+
+        export PORT=3000
+        node server.js
+
+```
 
 Finally, we import the values from the config.js file to the server.js file.  We simply import from the config file and pull the variables we want (i.e. PORT and DATABASE_URL).
 ```Javascript
