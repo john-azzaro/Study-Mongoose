@@ -17,7 +17,7 @@ In more technical terms, Mongoose provides a modeling enviroment for your data, 
 
 <br>
 
-## How do you connect with MongoDB using Mongoose?
+## How do you configure Mongoose ?
 
 <dl>
 
@@ -72,6 +72,9 @@ Then inside the config.js file, we have 3 constants: the database url, the test 
 ```
 
 #### How do you set environment variables?
+
+<dd>
+
 Now if you want to set an environment variable, you can do so in TWO ways: Temporarily before you run the program OR set for the complete session.
 
 In the case of setting your environment variable temporarily:
@@ -83,6 +86,8 @@ In the case an environment variable for the complete session:
     export PORT=3000
     node server.js
 ```
+
+</dd>
 
 Finally, we import the values from the config.js file to the server.js file.  We simply import from the config file and pull the variables we want (i.e. PORT and DATABASE_URL).
 ```Javascript
@@ -96,9 +101,11 @@ Finally, we import the values from the config.js file to the server.js file.  We
 
 </dd>
 
-### STEP 4: 
+### STEP 5: 
 ------
 </dd>
+
+
 
 
 ```JavaScript
