@@ -107,18 +107,18 @@ So essentially the runServer function will connect to the MongoDB database and r
  
     function runServer(databaseUrl, port=PORT) {                   // To Run server, pass 
         return new Promise((resolve, reject) => {                  // return Promise in which...
-            mongoose.connect(databaseUrl, err => {                 // Mongoose connects to database...
-                if (err) {                                         // ... If there is an error, return reject.
-                    return reject(err);
+            mongoose.connect(databaseUrl, err => {                 // Mongoose connects to database:
+                if (err) {                                         // If there is an error... 
+                    return reject(err);                            // ... return reject.
                 }       
 
-                server = app.listen(port, () => {                  // 
-                    console.log(`Listening on port ${port}`);
-                    resolve();
+                server = app.listen(port, () => {                  // Listen for new connection to the configured port.  
+                    console.log(`Listening on port ${port}`);      // ... and log connection in terminal.
+                    resolve();                                     // and then the promise is resolved!
                 })
-                .on('error', err => {
-                    mongoose.disconnect();
-                    reject(err);
+                .on('error', err => {                              // But if there is an error...
+                    mongoose.disconnect();                         // ... disconnect from mongoose...
+                    reject(err);                                   // and reject (passing in an error object).
                 });
             });
         });
