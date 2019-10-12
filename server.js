@@ -118,25 +118,22 @@ app.use("*", function(req, res) {
 let server;
 
 // this function connects to our database, then starts the server
-function runServer(databaseUrl, port = PORT) {
-  return new Promise((resolve, reject) => {
-    mongoose.connect(
-      databaseUrl,
-      err => {
-        if (err) {
-          return reject(err);
-        }
-        server = app
-          .listen(port, () => {
-            console.log(`Your app is listening on port ${port}`);
-            resolve();
+function runServer(databaseUrl, port=PORT) {     
+  return new Promise((resolve, reject) => {       
+      mongoose.connect(databaseUrl, err => {
+          if (err) {
+              return reject(err);
+          }       
+          
+          server = app.listen(port, () => {
+              console.log(`Listening on port ${port}`);
+              resolve();
           })
-          .on("error", err => {
-            mongoose.disconnect();
-            reject(err);
+          .on('error', err => {
+              mongoose.disconnect();
+              reject(err);
           });
-      }
-    );
+      });
   });
 }
 

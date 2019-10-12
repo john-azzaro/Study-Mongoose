@@ -90,7 +90,7 @@ needed. So first, create a config.js file.
 
 </dd>
 
-### STEP 5: Create a "runServer" function to connect to database and run HTTP server
+### STEP 5: Create a "runServer" function to connect to database and run HTTP server!
 ------
 </dd>
 
@@ -103,17 +103,17 @@ So essentially the runServer function will connect to the MongoDB database and r
 
 
 ```JavaScript
-    let server;
-
-    function runServer(databaseUrl, port=PORT) {
-        return new Promise((resolve, reject) => {
-            mongoose.connect(databaseUrl, err => {
-                if (err) {
+    let server;                                                    // server object declared OUTSIDE Run and Close
+ 
+    function runServer(databaseUrl, port=PORT) {                   // To Run server, pass 
+        return new Promise((resolve, reject) => {                  // return Promise in which...
+            mongoose.connect(databaseUrl, err => {                 // Mongoose connects to database...
+                if (err) {                                         // ... If there is an error, return reject.
                     return reject(err);
                 }       
 
-                server = app.listen(port, () => {
-                    console.log(`Your app is listening on port ${port}`);
+                server = app.listen(port, () => {                  // 
+                    console.log(`Listening on port ${port}`);
                     resolve();
                 })
                 .on('error', err => {
