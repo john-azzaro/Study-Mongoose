@@ -70,6 +70,12 @@ Then inside the config.js file, we have 3 constants: the database url, the test 
     exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL || "mongodb://localhost/test-restaurants-app";
     exports.PORT = process.env.PORT || 8080;
 ```
+Now if you want to set an environment variable, you can do so in TWO ways: Temporarily before you run the program OR set for the complete session.
+
+In the case of setting your environment variable temporarily:
+```
+    PORT=
+```
 
 Finally, we import the values from the config.js file to the server.js file.  We simply import from the config file and pull the variables we want (i.e. PORT and DATABASE_URL).
 ```Javascript
@@ -83,6 +89,20 @@ Finally, we import the values from the config.js file to the server.js file.  We
 
 </dd>
 
+### STEP 4: 
+------
+</dd>
+
+
+```JavaScript
+
+```
+</dd>
+
+
+
+
+
 
 </dl>
 
@@ -91,15 +111,7 @@ Finally, we import the values from the config.js file to the server.js file.  We
 
 
 
-### STEP 4: 
-------
-</dd>
 
-In order
-```JavaScript
-
-```
-</dd>
 
 ### STEP : :
 ------
