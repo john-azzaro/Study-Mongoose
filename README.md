@@ -152,9 +152,36 @@ This closes the app as well as disconnects from the database. This also returns 
 
 </dl>
 
+## What is a Schema?
+A schema is used to define the shape (i.e. layers of properties) of documents within a collection in MongoDB. In other words, a schema is 
+a template that you can plug data into and save in a collection inside your database.  
+
+In MongoDB Compass for each database you will see "collections". A "document" in a MongoDB "collection" is an individual instance of each 
+schema with unique values in the standard properties. Think of schemas like the difference between Classes and objects. A Class would be a human.
+An object would be a person named "Joe".
+
+
+
+
+
+
+
+
+<br>
+
 ## How do you create Mongoose models?
+First, what is a 
 
 
+<dl>
+
+
+
+
+
+
+
+</dl>
 
 
 
