@@ -10,7 +10,9 @@ Here's some questions covered in the study:
 <br>
 
 ## What is Mongoose?
-Mongoose is a Object Data Mapper (ODM) library (or Object Modeling Modeler) for MongoDB and Node.js, and allows your Node.js app to (which speaks the JavaScript language) to talk to the MongoDB database.  The primary objective of the Mongoose framework is to simply the writing of validation code, business logic boiler plate, and make the code shorter and easier to work with. 
+Mongoose is a Object Data Mapper (ODM) library (or Object Modeling Modeler) for MongoDB and Node.js.
+
+Mongoose allows your Node.js app to talk to the MongoDB database.  The primary objective of the Mongoose framework is to simply the writing of validation code, business logic boiler plate, and make the code shorter and easier to work with. 
 
 In more technical terms, Mongoose provides a modeling enviroment for your data, enforcing structure while maintaing flexibility. Mongoose manages realtionships between data, providing schema validation, and is used between objects in code and the representation of those object in MongoDB.
 
@@ -18,7 +20,7 @@ In more technical terms, Mongoose provides a modeling enviroment for your data, 
 <br>
 
 ## How do you setup and configure a Mongoose server?
-To setup 
+To setup Mongoose, you need to install the Mongoose depency, configure Mongoose to use ES6 promises (for pre-version 5 Mongoose). Then, you can add your database url's and environment variables either in the server.js file or (as in this study), in a seperate config.js file.  Lastly, add a runServer and a closeServer function to connect with MongoDB and listen for connections and close the server when disconnected.
 
 <dl>
 
