@@ -157,6 +157,7 @@ This closes the app as well as disconnects from the database. This also returns 
 
 ## What is a Schema?
 
+<dl>
 <dd>
 
 A **schema** is used to define the shape (i.e. layers of properties) of documents within a collection in MongoDB. In other words, a schema is 
@@ -170,9 +171,11 @@ To create a schema, you first need to create a "blueprint" of your document. Thi
 were creating a schema for books.
 
 </dd>
+</dl>
 
 ### First, we set the "bookSchema" to a new schema class:
 
+<dl>
 <dd>
 
 This basically creates a new schema when the "bookSchema" is called. And because this creates a new instance of the class, you pass an object with the key/value pairs
@@ -184,10 +187,11 @@ in the books documents. So again, this book "schema" will define the shape (i.e.
 ```
 
 </dd>
-
+</dl>
 
 ### Second, specify the properties your document has:
 
+<dl>
 <dd>
 
 When you create your schema, you are going to need to have specific attributes that document has.  Thus, for each an every book schema that is created you need to have properties sucha as a name, author, isPublished, etc. 
@@ -204,7 +208,7 @@ Also note that when creating schemas, you can use only the following data types:
 ```
 
 </dd>
-
+</dl>
 
 
 
