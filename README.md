@@ -163,15 +163,28 @@ An object would be a person named "Joe".
 To create a schema, you first need to create a "blueprint" of your document. This define the shape of the document you wish to create.  For example, suppose we
 were creating a schema for books.
 
-First, we set the "bookSchema" to a new schema class:
-
+### First, we set the "bookSchema" to a new schema class:
+This basically creates a new schema when the "bookSchema" is called. And because this creates a new instance of the class, you pass an object with the key/value pairs
+in the books documents. So again, this book "schema" will define the shape (i.e. layout) of the book documents (i.e. individual instances) in the Mongo Database.
 ```JavaScript
     const bookSchema = new mongoose.Schema({
         // properties of book go here.
     })
 ```
 
-Second
+### Second, create the properties for your schema:
+When you create your schema, you are going to need to have specific attributes for each an every book schema that is created.  In the case of this simple example, we want to have a name, author, isPublished, etc. 
+
+Note that when creating schemas, you can use only the following data types: String, Number, Date, Boolean, Array, Buffer (used for string binary data), and ObjectID (used for assigning unique identifiers).
+ ```JavaScript
+    const bookSchema = new mongoose.Schema({
+        name: String,                    
+        author: String,
+        tags: [ String ],                
+        isPublished: Boolean 
+        date: { type: Date, default: Date.now },   
+    })
+```
 
 
 
