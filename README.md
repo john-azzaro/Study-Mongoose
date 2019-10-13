@@ -157,8 +157,21 @@ A schema is used to define the shape (i.e. layers of properties) of documents wi
 a template that you can plug data into and save in a collection inside your database.  
 
 In MongoDB Compass for each database you will see "collections". A "document" in a MongoDB "collection" is an individual instance of each 
-schema with unique values in the standard properties. Think of schemas like the difference between Classes and objects. A Class would be a human.
+schema with unique values in the standard properties. Think of schemas in terms of the difference between "Classes" and "objects". A Class would be a human.
 An object would be a person named "Joe".
+
+To create a schema, you first need to create a "blueprint" of your document. This define the shape of the document you wish to create.  For example, suppose we
+were creating a schema for books.
+
+First, we set the "bookSchema" to a new schema class:
+
+```JavaScript
+    const bookSchema = new mongoose.Schema({
+        // properties of book go here.
+    })
+```
+
+Second
 
 
 
