@@ -156,6 +156,9 @@ This closes the app as well as disconnects from the database. This also returns 
 <br>
 
 ## What is a Schema?
+
+<dd>
+
 A **schema** is used to define the shape (i.e. layers of properties) of documents within a collection in MongoDB. In other words, a schema is 
 a template that you can plug data into and save in a collection inside your database.  
 
@@ -166,7 +169,12 @@ An object would be a person named "Joe".
 To create a schema, you first need to create a "blueprint" of your document. This define the shape of the document you wish to create.  For example, suppose we
 were creating a schema for books.
 
+</dd>
+
 ### First, we set the "bookSchema" to a new schema class:
+
+<dd>
+
 This basically creates a new schema when the "bookSchema" is called. And because this creates a new instance of the class, you pass an object with the key/value pairs
 in the books documents. So again, this book "schema" will define the shape (i.e. layout) of the book documents (i.e. individual instances) in the Mongo Database.
 ```JavaScript
@@ -175,7 +183,13 @@ in the books documents. So again, this book "schema" will define the shape (i.e.
     })
 ```
 
+</dd>
+
+
 ### Second, specify the properties your document has:
+
+<dd>
+
 When you create your schema, you are going to need to have specific attributes that document has.  Thus, for each an every book schema that is created you need to have properties sucha as a name, author, isPublished, etc. 
 
 Also note that when creating schemas, you can use only the following data types: *String, Number, Date, Boolean, Array, Buffer (used for string binary data), and ObjectID (used for assigning unique identifiers)*.
@@ -188,6 +202,8 @@ Also note that when creating schemas, you can use only the following data types:
         date: { type: Date, default: Date.now },   
     })
 ```
+
+</dd>
 
 
 
