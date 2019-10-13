@@ -5,7 +5,7 @@
 Here's some questions covered in the study:
 
 * [What is Mongoose](#)
-* [How do you connect with MongoDB using Mongoose?](#How-do-you-connect-with-MongoDB-using-Mongoose)
+* [How do you setup and configure a Mongoose server?](#How-do-you-setup-and-configure-a-Mongoose-server)
 
 <br>
 
@@ -17,7 +17,8 @@ In more technical terms, Mongoose provides a modeling enviroment for your data, 
 
 <br>
 
-## How do you configure Mongoose ?
+## How do you setup and configure a Mongoose server?
+To setup 
 
 <dl>
 
@@ -132,10 +133,10 @@ This closes the app as well as disconnects from the database. This also returns 
 
 ```JavaScript
     function closeServer() {                                     // To close server:
-        return mongoose.disconnect().then(() => {                    // disconnect and then...
-            return new Promise((resolve, reject) => {                // return a promise which...
-                console.log("Closing server");                           // ... will log "closing server"...
-                server.close(err => {                                    // and close the server...
+        return mongoose.disconnect().then(() => {                // disconnect and then...
+            return new Promise((resolve, reject) => {            // return a promise which...
+                console.log("Closing server");                   // ... will log "closing server"...
+                server.close(err => {                            // and close the server...
             if (err) {                                           // and if there is an error, reject...
                return reject(err);                                  
             }
@@ -147,11 +148,9 @@ This closes the app as well as disconnects from the database. This also returns 
 ```
 </dd>
 
-
-
-
 </dl>
 
+## How do you create Mongoose models?
 
 
 
