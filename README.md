@@ -6,6 +6,7 @@ Here's some questions covered in the study:
 
 * [What is Mongoose](#)
 * [How do you setup and configure a Mongoose server?](#How-do-you-setup-and-configure-a-Mongoose-server)
+* [What is a Schema?](#What-is-a-Schema)
 
 <br>
 
@@ -152,8 +153,10 @@ This closes the app as well as disconnects from the database. This also returns 
 
 </dl>
 
+<br>
+
 ## What is a Schema?
-A schema is used to define the shape (i.e. layers of properties) of documents within a collection in MongoDB. In other words, a schema is 
+A **schema** is used to define the shape (i.e. layers of properties) of documents within a collection in MongoDB. In other words, a schema is 
 a template that you can plug data into and save in a collection inside your database.  
 
 In MongoDB Compass for each database you will see "collections". A "document" in a MongoDB "collection" is an individual instance of each 
@@ -172,10 +175,10 @@ in the books documents. So again, this book "schema" will define the shape (i.e.
     })
 ```
 
-### Second, create the properties for your schema:
-When you create your schema, you are going to need to have specific attributes for each an every book schema that is created.  In the case of this simple example, we want to have a name, author, isPublished, etc. 
+### Second, specify the properties your document has:
+When you create your schema, you are going to need to have specific attributes that document has.  Thus, for each an every book schema that is created you need to have properties sucha as a name, author, isPublished, etc. 
 
-Note that when creating schemas, you can use only the following data types: String, Number, Date, Boolean, Array, Buffer (used for string binary data), and ObjectID (used for assigning unique identifiers).
+Also note that when creating schemas, you can use only the following data types: *String, Number, Date, Boolean, Array, Buffer (used for string binary data), and ObjectID (used for assigning unique identifiers)*.
  ```JavaScript
     const bookSchema = new mongoose.Schema({
         name: String,                    
