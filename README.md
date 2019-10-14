@@ -167,8 +167,9 @@ In MongoDB Compass for each database you will see "collections". A "document" in
 schema with unique values in the standard properties. Think of schemas in terms of the difference between "Classes" and "objects". A Class would be a human.
 An object would be a person named "Joe".
 
-To create a schema, you first need to create a "blueprint" of your document. This define the shape of the document you wish to create.  For example, suppose we
-were creating a schema for books.
+To create a schema, you first need to create a "blueprint" of your document. This define the shape of the document you wish to create.  
+
+> In the following example, we'll create schema for a book with associated properties (i.e. name, author, etc.).
 
 </dd>
 </dl>
