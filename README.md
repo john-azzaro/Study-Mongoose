@@ -155,17 +155,16 @@ This closes the app as well as disconnects from the database. This also returns 
 
 <br>
 
-## What is a Schema?
+## What is a Mongoose Schema?
 
 <dl>
 <dd>
 
-A **schema** is used to define the shape (i.e. layers of properties) of documents within a collection in MongoDB. In other words, a schema is 
-a template that you can plug data into and save in a collection inside your database.  
+A **schema** is used to define the shape (i.e. layers of properties) of documents within a collection in MongoDB. 
 
-In MongoDB Compass for each database you will see "collections". A "document" in a MongoDB "collection" is an individual instance of each 
-schema with unique values in the standard properties. Think of schemas in terms of the difference between "Classes" and "objects". A Class would be a human.
-An object would be a person named "Joe".
+In other words, a schema is a template that you can plug data into and save in a collection inside your database. For instance, in MongoDB Compass 
+for each database you will see "collections". A "document" in a MongoDB "collection" is an individual instance of each 
+schema with unique values in the standard properties.
 
 To create a schema, you first need to create a "blueprint" of your document. This define the shape of the document you wish to create.  
 
@@ -213,14 +212,24 @@ Also note that when creating schemas, you can use only the following data types:
 
 
 
-
-
-
-
 <br>
 
+## What is a Mongoose Model?
+A Mongoose model is a wrapper on the Mongoose schema.
+
+While 
+
+
+
+
+
+
+
+
+
+
 ## How do you create Mongoose models?
-First, what is a 
+First, what we need to create a "mode"
 
 
 <dl>
