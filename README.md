@@ -198,12 +198,21 @@ When you create your schema, you are going to need to have specific attributes t
 
 Also note that when creating schemas, you can use only the following data types: *String, Number, Date, Boolean, Array, Buffer (used for string binary data), and ObjectID (used for assigning unique identifiers)*.
  ```JavaScript
-    const bookSchema = new mongoose.Schema({
-        name: String,                    
-        author: String,
-        tags: [ String ],                
-        isPublished: Boolean 
-        date: { type: Date, default: Date.now },   
+    const bookSchema = new mongoose.Schema({             // Schema that will represent a book:
+        name: {                                          // object with type property and required value.
+            type: String, 
+            required: true
+        },            
+        authors: String,                                 // string.
+        tags: [ String ],                                // array of string values.                 
+        isPublished: Boolean                             // boolean
+        date: { type: Date, default: Date.now },         // date (set to the date created).
+        reviews: [{                                      // array of objects
+            reviewer: String,
+            publication: String,
+            grade: Number,
+            date: Date
+        }]
     })
 ```
 
