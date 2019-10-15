@@ -303,21 +303,23 @@ As we covered in the previous "What is a Mongoose Schema" section, you are simpl
 
 Now that you have your schema, you need to package it a model to be exported elsewhere in your code. To do this, you need to do the following:
 
-#### 1. Tell mongoose top create a new model:
+1. Tell mongoose top create a new model:
     ```JavaScript
         mongoose.model();
     ```
-#### 2. Pass in TWO arguments: The corresponding collection in your database and the schema:
+2. Pass in TWO arguments: The corresponding collection in your database and the schema:
 When you tell mongoose to create a model, the first argument you pass in will be the collection in the database that corresponds to this model. The second argument will be the schema we just defined.
+
     ```JavaScript
         mongoose.model('Book', bookSchema);    
     ```
-#### 3. Store as a constant:
+3. Store as a constant:
+
     ```JavaScript
         const Book = mongoose.model('Book', bookSchema);
     ```
-#### 4. Export the model:
-Then just export the model you just created!
+4. Export the model:
+Then just export the model you just created
 
      ```JavaScript
        const Book = mongoose.model('Book', bookSchema);
