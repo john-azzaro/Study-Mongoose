@@ -75,8 +75,8 @@ needed. So first, create a config.js file.
 
 > NOTE: If you want to set an environment variable, you can do so in TWO ways: Temporarily before you run the program OR set for the complete session. In the case of setting your environment variable temporarily: ```PORT=3000 node server.js```. In the case an environment variable for the complete session: ```export PORT=3000 node server.js```.
 ```JavaScript
-    exports.DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost/restaurants-app";
-    exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL || "mongodb://localhost/test-restaurants-app";
+    exports.DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost/books";
+    exports.TEST_DATABASE_URL = process.env.TEST_DATABASE_URL || "mongodb://localhost/test-books";
     exports.PORT = process.env.PORT || 8080;
 ```
 
@@ -101,7 +101,7 @@ needed. So first, create a config.js file.
 So essentially the runServer function will connect to the MongoDB database and run the HTTP server in unison.  It does this in a specific order:
 1. Mongoose connects to our database using the URL's we provided in the config.js file.
 2. Listen for connections on the ports we specified (i.e. 8080 OR other specified env variable port).
-3. If successful, call a callback function that connection worked. If unsuccessful, return error.
+3. If successful, call a callback function if that connection worked. If unsuccessful, return error.
 
 ```JavaScript
     let server;                                                    // server declared OUTSIDE Run and Close.
@@ -308,7 +308,7 @@ Now that you have your schema, you need to package it a model to be exported els
         mongoose.model();
     ```
 2. Pass in TWO arguments: The corresponding collection in your database and the schema:
-When you tell mongoose to create a model, the first argument you pass in will be the collection in the database that corresponds to this model. The second argument will be the schema we just defined.
+When you tell mongoose to create a model, the first argument you pass in will be the collection in the database that corresponds to this model. The second argument will be the schema we just defined. Also note that by default, Mongo will convert convert the name of the first argument (i.e. Book => books), where it will be working with ``` db.books```.
 
     ```JavaScript
         mongoose.model('Book', bookSchema);    
