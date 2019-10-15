@@ -318,6 +318,7 @@ When you tell mongoose to create a model, the first argument you pass in will be
     ```
 #### 4. Export the model:
 Then just export the model you just created!
+
      ```JavaScript
        const Book = mongoose.model('Book', bookSchema);
        module.exports = { Book }
