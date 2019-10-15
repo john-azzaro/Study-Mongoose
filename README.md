@@ -318,11 +318,13 @@ Now that you have your schema, you need to package it a model to be exported els
     ```
 4. Export
 > Then just export the model you just created!
-    ```JavaScript
-        const Book = mongoose.model('Book', bookSchema);
+     ```JavaScript
+       const Book = mongoose.model('Book', bookSchema);
         module.exports = { Book }
-    ```
+     ```   
 
+And as a finished model, see how everything fits together:
+        
 ```JavaScript
         const mongoose = require("mongoose");
 
