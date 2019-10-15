@@ -196,7 +196,15 @@ in the books documents. So again, this book "schema" will define the shape (i.e.
 
 When you create your schema, you are going to need to have specific attributes that document has.  Thus, for each an every book schema that is created you need to have properties sucha as a name, author, isPublished, etc. 
 
-Also note that when creating schemas, you can use only the following data types: *String, Number, Date, Boolean, Array, Buffer (used for string binary data), and ObjectID (used for assigning unique identifiers)*.
+Also note that when creating schemas, you can use only the following data types: 
+* *String*
+*  *Number* 
+* *Date*
+* *Boolean* 
+* *Array* 
+* *Buffer (used for string binary data)*
+* *ObjectID (used for assigning unique identifiers)*
+
  ```JavaScript
     const bookSchema = new mongoose.Schema({             // Schema that will represent a book:
         name: {                                          // object with type property and required value.
