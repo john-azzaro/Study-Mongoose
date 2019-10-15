@@ -308,7 +308,7 @@ Now that you have your schema, you need to package it a model to be exported els
         mongoose.model();
     ```
 2. Pass in TWO arguments: The corresponding collection in your database and the schema:
-> When you tell mongoose to create a model, the first argument you pass in will be the collection in the database that corresponds to this model. The second argument will be the schema we just defined.
+When you tell mongoose to create a model, the first argument you pass in will be the collection in the database that corresponds to this model. The second argument will be the schema we just defined.
     ```JavaScript
         mongoose.model('Book', bookSchema);    
     ```
@@ -316,8 +316,8 @@ Now that you have your schema, you need to package it a model to be exported els
     ```JavaScript
         const Book = mongoose.model('Book', bookSchema);
     ```
-4. Export
-> Then just export the model you just created!
+4. Export the model
+Then just export the model you just created!
      ```JavaScript
        const Book = mongoose.model('Book', bookSchema);
         module.exports = { Book }
