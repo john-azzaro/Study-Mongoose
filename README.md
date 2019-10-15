@@ -194,7 +194,9 @@ in the books documents. So again, this book "schema" will define the shape (i.e.
 <dl>
 <dd>
 
-When you create your schema, you are going to need to have specific attributes that document has.  Thus, for each an every book schema that is created you need to have properties sucha as a name, author, isPublished, etc. 
+When you create your schema, you are going to need to have specific attributes that document has.  Thus, for each an every book schema that is created you need to have properties such as a name, author, isPublished, etc. 
+
+Now take for example the "author" property. This property has a schema type of "String" which maps to an internal validator that will be triggered when the model is saved to MongoDB. If the data type is anything other than a String, it will fail because it is not a string type. 
 
  ```JavaScript
     const bookSchema = new mongoose.Schema({             // Schema that will represent a book:
@@ -237,7 +239,7 @@ Also note that when creating schemas, you can use only the following data types:
 ## What is a Mongoose Model?
 A Mongoose model is a wrapper on the Mongoose schema.
 
-While the *schema* defines the structure of the document, like the default values, validators, etc., the Mongoose *model* prvides the interface to the database for creating, querying, updating, deleing, etc.
+While the *schema* defines the structure of the document, like the default values, validators, etc., the Mongoose *model* prvides the interface to the database for creating, querying, updating, deleting, etc.
 
 To create a model, we need to follow a three step process: 
 1. Reference Mongoose
@@ -260,7 +262,7 @@ To create a model, we need to follow a three step process:
 <dd>
 
 ```JavaScript
-    const mongoose = require('mongoose');
+    const mongoose = require('mongoose');              //load mongoose
 ```
 
 </dd>
@@ -270,17 +272,18 @@ To create a model, we need to follow a three step process:
 <dl>
 <dd>
 
+As we covered in the previous "What is a Mongoose Schema" section, you are simply creating a template for any instance of books you will create. 
 ```JavaScript
     const mongoose = require("mongoose");
 
-    const bookSchema = new mongoose.Schema({  
+    const bookSchema = new mongoose.Schema({          // schema of book
         name: {                      
             type: String, 
             required: true
         },            
         authors: String,         
         tags: [ String ],                   
-        isPublished: Boolean      
+        isPublished: Boolean,      
         date: { type: Date, default: Date.now },  
         reviews: [{               
             reviewer: String,
@@ -299,6 +302,29 @@ To create a model, we need to follow a three step process:
 <dd>
 
 
+Now remeber what a model is: a wrapper on the wrapper schema. 
+```JavaScript
+        const mongoose = require("mongoose");
+
+        const bookSchema = new mongoose.Schema({  
+            name: {                      
+                type: String, 
+                required: true
+            },            
+            authors: String,         
+            tags: [ String ],                   
+            isPublished: Boolean,      
+            date: { type: Date, default: Date.now },  
+            reviews: [{               
+                reviewer: String,
+                publication: String,
+                grade: Number,
+                date: Date
+            }]
+        })
+
+        const Book = mongoose.model("Book", bookSchema);
+```
 
 </dd>
 </dl>
