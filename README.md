@@ -196,20 +196,6 @@ in the books documents. So again, this book "schema" will define the shape (i.e.
 
 When you create your schema, you are going to need to have specific attributes that document has.  Thus, for each an every book schema that is created you need to have properties sucha as a name, author, isPublished, etc. 
 
-Also note that when creating schemas, you can use only the following data types: 
-
-
-| **Data Type:**                            | **Example:**                             |
-| ---------------------------------------- | ----------------------------------------------|
-|    *String*                                      |          Joe Smith                                     |
-|     *Number*                                     |           12345                                    |
-|    *Date*                                      |         2019-06-29T22:34:02.188Z                                      |
-|    *Boolean*                                      |       true                                        |
-|    *Array*                                       |         [red, yellow, green]                                      |
-|    *Object*                                       |         {name: String, age: Number}                                      |
-
-
-
  ```JavaScript
     const bookSchema = new mongoose.Schema({             // Schema that will represent a book:
         name: {                                          // object with type property and required value.
@@ -229,6 +215,18 @@ Also note that when creating schemas, you can use only the following data types:
     })
 ```
 
+Also note that when creating schemas, you can use only the following data types: 
+
+| **Data Type:**                            | **Example:**                             |
+| ---------------------------------------- | ----------------------------------------------|
+|    *String*                                      |          Joe Smith                                     |
+|     *Number*                                     |           12345                                    |
+|    *Date*                                      |         2019-06-29T22:34:02.188Z                                      |
+|    *Boolean*                                      |       true                                        |
+|    *Array*                                       |         [red, yellow, green]                                      |
+|    *Object*                                       |         {name: String, age: Number}                                      |
+
+
 </dd>
 </dl>
 
@@ -239,8 +237,71 @@ Also note that when creating schemas, you can use only the following data types:
 ## What is a Mongoose Model?
 A Mongoose model is a wrapper on the Mongoose schema.
 
-While 
+While the *schema* defines the structure of the document, like the default values, validators, etc., the Mongoose *model* prvides the interface to the database for creating, querying, updating, deleing, etc.
 
+To create a model, we need to follow a three step process: 
+1. Reference Mongoose
+2. Define the Schema
+3. Export the model
+
+### STEP 0: Create a models file.
+<dl>
+<dd>
+
+```
+    models.js
+```
+
+</dd>
+</dl>
+
+### STEP 1: Reference Mongoose.
+<dl>
+<dd>
+
+```JavaScript
+    const mongoose = require('mongoose');
+```
+
+</dd>
+</dl>
+
+### STEP 2: Define the Schema.
+<dl>
+<dd>
+
+```JavaScript
+    const mongoose = require("mongoose");
+
+    const bookSchema = new mongoose.Schema({  
+        name: {                      
+            type: String, 
+            required: true
+        },            
+        authors: String,         
+        tags: [ String ],                   
+        isPublished: Boolean      
+        date: { type: Date, default: Date.now },  
+        reviews: [{               
+            reviewer: String,
+            publication: String,
+            grade: Number,
+            date: Date
+        }]
+    })
+```
+
+</dd>
+</dl>
+
+### STEP 3: Export the model.
+<dl>
+<dd>
+
+
+
+</dd>
+</dl>
 
 
 
