@@ -301,8 +301,7 @@ As we covered in the previous "What is a Mongoose Schema" section, you are simpl
 <dl>
 <dd>
 
-
-Now remeber what a model is: a wrapper on the wrapper schema. 
+Now that you have your schema, you need to package it a model to be exported elsewhere in your code.
 ```JavaScript
         const mongoose = require("mongoose");
 
@@ -323,7 +322,9 @@ Now remeber what a model is: a wrapper on the wrapper schema.
             }]
         })
 
-        const Book = mongoose.model("Book", bookSchema);
+        const Book = mongoose.model("Book", bookSchema);     // Create a new mongoose model of book...
+
+        module.exports = { Book };                           // and export Book (for use in server.js).
 ```
 
 </dd>
