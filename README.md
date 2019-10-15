@@ -237,10 +237,20 @@ Also note that when creating schemas, you can use only the following data types:
 <br>
 
 ## What is a Mongoose Model?
+
+<dl>
+<dd>
+
 A Mongoose model is a wrapper on the Mongoose schema.
 
 While the *schema* defines the structure of the document, like the default values, validators, etc., the Mongoose *model* prvides the interface to the database for creating, querying, updating, deleting, etc.
 
+</dd>
+</dl>
+
+<br>
+
+## How do you create a Mongoose Model?
 To create a model, we need to follow a three step process: 
 1. Reference Mongoose
 2. Define the Schema
@@ -356,13 +366,7 @@ And as a finished model, see how everything fits together:
 </dd>
 </dl>
 
-
-
-
-
-
-
-
+<br>
 
 ## How do you create Mongoose models?
 First, what we need to create a "mode"
