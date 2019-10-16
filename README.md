@@ -377,66 +377,40 @@ And as a finished model, see how everything fits together:
 
 A **virtual** allows you to manipulate properties in the schema object (which are stored in the database). In other words, it will let you take existing properties in your database to create a new property.
 
-For example, suppose that our bookSchema has an ```authorName``` property with an object composed of ```firstName``` and ```lastName``` properties.
+For example, look at the ```authorName``` property in our bookSchema, which is an object with two properties: ```firstName``` and ```lastName```.
 ```JavaScript
     const bookSchema = new mongoose.Schema({
-        authorName: {
-            firstName: String,
-            lastName: String,
+        authorName: {                                        // author object with...
+            firstName: String,                               // ... first name and...
+            lastName: String,                                // ... last name properties.
         }
         ...
         ...
     });
 ```
-Now you *could* just have a property like ```fullName``` with a combination of the first and last names. However, most of the time your data isnt going to have this included. This is where *virtuals* come in. What a virtual will do is create a new property (that does not exist nor persist in the database) and *manipulate* those properties so that a new property is created for use in your application. 
+Now suppose you want to reference the full name of the author of your books. How would you do this?
 
+You *could* just have a property like ```fullName``` with a combination of the first and last names, most of the time your database will not have this spcific combination. This is where *virtuals* come in. Conversely, you *could* concatenate the properties of the first and last name throughout the entire application. However, this is messy and with the power of virtuals, you only need to do this *once*!
 
-
-
-
-
-
-
-
-
-
-
-```JavaScript
-    const bookSchema = new mongoose.Schema({
-        authorName: {
-            first: String,
-            last: String,
-        }
-        ...
-        ...
-    });
-```
-
+What a virtual will do is create a new property (that does not exist nor persist in the database) and *manipulate* those properties so that a new property is created for use in your application. In the following question, you'll see just how easy creating a new virtual property can be.
 
 </dd>
 </dl>
-
-
-
-
-
-
-
-### STEP : :
-------
-</dd>
-
-
-```JavaScript
-
-```
-</dd>
-
-
-</dl>
-
 
 <br>
 
-## How
+## How do you define a virtual property?
+<dl>
+<dd>
+
+### STEP 1: 
+
+
+To create a virtual property, you need simply need to call the Schema and chain the ```.virtual``` method
+
+</dd>
+</dl>
+
+
+
 
