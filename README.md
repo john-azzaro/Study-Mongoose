@@ -241,9 +241,9 @@ Also note that when creating schemas, you can use only the following data types:
 <dl>
 <dd>
 
-A Mongoose model is a wrapper on the Mongoose schema.
+A **Mongoose model** is a wrapper on the Mongoose schema.
 
-While the *schema* defines the structure of the document, like the default values, validators, etc., the Mongoose *model* prvides the interface to the database for creating, querying, updating, deleting, etc.
+While the *schema* defines the structure of the document, like the default values, validators, etc., the Mongoose *model* provides the interface to the database for creating, querying, updating, deleting, etc.
 
 </dd>
 </dl>
@@ -368,19 +368,22 @@ And as a finished model, see how everything fits together:
 
 <br>
 
-## How do you create Mongoose models?
-First, what we need to create a "mode"
-
-
+## What are Virtuals?
 <dl>
+<dd>
+
+**Virtuals** allow 
 
 
+// allow us to define properties on our object that manipulate
+// properties that are stored in the database. Here we use it
+// to generate a human readable string based on the address object
+// we're storing in Mongo.
 
-
-
-
-
+</dd>
 </dl>
+
+
 
 
 
