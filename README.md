@@ -375,7 +375,7 @@ And as a finished model, see how everything fits together:
 <dl>
 <dd>
 
-A **virtual** allows you to manipulate properties in the schema object (which are stored in the database). In other words, it will let you take existing properties in your database to create a new property.
+A **virtual** allows you to manipulate properties in the schema object (which are stored in the database). In other words, it will let you take existing properties in your database to create a new property. Note that a virtual does not persist in the database, *it only exists logically* in the application and is not written anywhere in the documents collection.
 
 For example, look at the ```authorName``` property in our bookSchema, which is an object with two properties: ```firstName``` and ```lastName```.
 ```JavaScript
@@ -390,9 +390,16 @@ For example, look at the ```authorName``` property in our bookSchema, which is a
 ```
 Now suppose you want to reference the full name of the author of your books. How would you do this?
 
-You *could* just have a property like ```fullName``` with a combination of the first and last names, most of the time your database will not have this spcific combination. This is where *virtuals* come in. Conversely, you *could* concatenate the properties of the first and last name throughout the entire application. However, this is messy and with the power of virtuals, you only need to do this *once*!
+You *could* just have a property like ```fullName``` with a combination of the first and last names, but most of the time your database will not have this spcific combination. You also *could* concatenate the properties of the first and last name throughout the entire application. However, this is a bit messy. This is where *virtuals* come in. 
 
 What a virtual will do is create a new property (that does not exist nor persist in the database) and *manipulate* those properties so that a new property is created for use in your application. In the following question, you'll see just how easy creating a new virtual property can be.
+
+### GET and SET methods for Virtuals
+Mongoose has two virtual *fields*, the GET and the SET methods.
+* The **GET** method is a function that returns a virtual value, and can do complex processing or simple concatenation.
+* The **SET** method is used to split strings and perform other operations.
+
+In the case of this study example, we'll use the GET method to concatenate the full name of our author.
 
 </dd>
 </dl>
@@ -403,10 +410,37 @@ What a virtual will do is create a new property (that does not exist nor persist
 <dl>
 <dd>
 
-### STEP 1: 
+### STEP 1: Declare a virtual attribute on the schema:
+To create a virtual property, you first call the schema you wish to create a virtual property for. In this case, we want to create a virtual property for the bookSchema schema.
+```JavaScript
+    bookSchema.virtual();
+```
+
+### STEP 2: Input the new virtual property name:
+Since we want to create a full name composed of the first and last name, we'll call this virtual property "fullName".
+```JavaScript
+    bookSchema.virtual('fullName');
+```
+
+### STEP 3: Add the GET method and function that will return the desired result
+In the case of this virtual property, our function will return the concatenation of the first and the last name.
+```JavaScript
+    bookSchema.virtual('fullName', function() {
+        return this.firstName + ' ' + this.lastName;
+    });
+```
+
+### RESULT: When you call fullName, you invoke the getter function!
+So when you call fullName, the resulting process will get the returning concatenation of the first and last name with a space in the middle.
+```
+    bookSchema.fullname     // call
+    Joe Smith               // result
+```
 
 
-To create a virtual property, you need simply need to call the Schema and chain the ```.virtual``` method
+
+
+
 
 </dd>
 </dl>
