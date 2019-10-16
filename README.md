@@ -4,15 +4,14 @@
 
 Here's some questions covered in the study:
 
-* [What is Mongoose?](#)
-> Explains what mongoose is, what it allows you to do, and deeper technical context.
-* [How do you setup and configure a Mongoose server?](#)
-* [What is a Mongoose Schema and why do you need it?](#)
-* [How do you create a Mongoose Schema?](#)
-* [What is a Mongoose Model?](#)
-* [How do you create a Mongoose Model?](#)
-* [What are Virtuals?](#)
-* [How do you define a virtual property?](#)
+* [What is Mongoose?](#What-is-Mongoose)
+* [How do you setup and configure a Mongoose server?](#How-do-you-setup-and-configure-a-Mongoose-server)
+* [What is a Mongoose Schema and why do you need it?](#What-is-a-Mongoose-Schema-and-why-do-you-need-it)
+* [How do you create a Mongoose Schema?](#How-do-you-create-a-Mongoose-Schema)
+* [What is a Mongoose Model?](#What-is-a-Mongoose-Model)
+* [How do you create a Mongoose Model?](#How-do-you-create-a-Mongoose-Model)
+* [What are Virtuals?](#What-are-Virtuals)
+* [How do you define a virtual property?](#How-do-you-define-a-virtual-property)
 * [](#)
 
 <br>
