@@ -346,7 +346,7 @@ And as a finished model, see how everything fits together:
                 type: String, 
                 required: true
             },            
-            authors: String,         
+            authorName: String,         
             tags: [ String ],                   
             isPublished: Boolean,      
             date: { type: Date, default: Date.now },  
@@ -356,7 +356,7 @@ And as a finished model, see how everything fits together:
                 grade: Number,
                 date: Date
             }]
-        })
+        });
 
         const Book = mongoose.model("Book", bookSchema);     // Create a new mongoose model of book...
 
@@ -372,24 +372,42 @@ And as a finished model, see how everything fits together:
 <dl>
 <dd>
 
-**Virtuals** allow you to manipulate properties in the schema object which are stored in the database.
+A **virtual** allows you to manipulate properties in the schema object (which are stored in the database).
 
-For example, suppose in our book schema example that instead of having an "authors" property, we have"authorFirstName" and "authorLastName" properties. Both of these properties accept a string as a value:
+For example, suppose that our bookSchema has an ```authorName``` property with an object composed of ```firstName``` and ```lastName``` properties.
 ```JavaScript
     const bookSchema = new mongoose.Schema({
-        authorFirstName: String,
-        authorLastName: String,
+        authorName: {
+            firstName: String,
+            lastName: String,
+        }
         ...
-        ... 
-    })
+        ...
+    });
+```
+Now you *could* just have a property like ```full``` with a combination of the first and last, a lot of times your data isnt going to have this included... only the first and last name. This is where *virtuals* come in. What a virtual will do is take the ```firstName``` and ```lastName``` and *manipulate* those properties so that
+
+
+
+
+
+
+
+
+
+
+
+```JavaScript
+    const bookSchema = new mongoose.Schema({
+        authorName: {
+            first: String,
+            last: String,
+        }
+        ...
+        ...
+    });
 ```
 
-
-
-// allow us to define properties on our object that manipulate
-// properties that are stored in the database. Here we use it
-// to generate a human readable string based on the address object
-// we're storing in Mongo.
 
 </dd>
 </dl>
