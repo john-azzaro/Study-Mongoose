@@ -12,6 +12,8 @@ Here's some questions covered in the study:
 * [How do you create a Mongoose Model?](#How-do-you-create-a-Mongoose-Model)
 * [What are Virtuals?](#What-are-Virtuals)
 * [How do you define a virtual property?](#How-do-you-define-a-virtual-property)
+* [What is an instance method and how do you implement it?](#What-is-an-instance-method-and-how-do-you-implement-it)
+* [](#)
 * [](#)
 
 <br>
@@ -468,20 +470,23 @@ So when you call fullName, the resulting process will get the returning concaten
 <dl>
 <dd>
 
-An *instance method*performs a specific action (i.e. serialize) on a specific instance of a model (i.e. a single document) rather than the entire model itself.
+An **instance method** performs a specific action (i.e. serialize) on a specific instance of a model (i.e. a single document) rather than the entire model itself.
 Instance methods are the opposite of *static methods*, which perform some action on the *entire* model.
 
 In the bookSchema example, the instance method we are created is ```.serialize```. Below, we have an collection of books that we have created a bookSchema for which contains 
 a few properties. However, to to use ```.serialize``` you need to create a custom method (i.e. ```.method```) which will will create the serialization method for every instance of 
-that model. In the instance method below, the custom *serialize* method will be used to return an object that only exposes *some* of the fields we want from the underlying data.
+that model. 
+
+In the instance method below, the custom *serialize* method will be used to return an object that only exposes *some* of the fields we want from the underlying data. In other words,
+this code will specify how ```books``` will be represented outside the application via the API.  For example, suppose we had a ```password``` property in bookSchema. This custom serialization
+method can make sure that the password property is left out.
 
 ```JavaScript
     bookSchema.methods.serialize = function() {
         return {
             title: this.title,
-            authorName: this.authorName,
             fullName: this.fullName,              // note that this is a virtual outside the bookSchema
-            tags: this.tags,
+            tags: this.tags,                      // ... and authorName is left out because fullName is included.
             isPublished: this.isPublished,
             date: this.grade,
             reviews: this.reviews
