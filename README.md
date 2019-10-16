@@ -485,8 +485,8 @@ method can make sure that the password property is left out.
     bookSchema.methods.serialize = function() {
         return {
             title: this.title,
-            fullName: this.fullName,              // note that this is a virtual outside the bookSchema
-            tags: this.tags,                      // ... and authorName is left out because fullName is included.
+            fullName: this.fullName,           // note that this is a virtual outside the bookSchema
+            tags: this.tags,                   // ... and authorName is left out because fullName is included.
             isPublished: this.isPublished,
             date: this.grade,
             reviews: this.reviews
