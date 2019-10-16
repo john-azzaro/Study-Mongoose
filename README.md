@@ -303,20 +303,24 @@ As we covered in the previous "What is a Mongoose Schema" section, you are simpl
     const mongoose = require("mongoose");
 
     const bookSchema = new mongoose.Schema({          // schema of book
-        name: {                      
-            type: String, 
-            required: true
-        },            
-        authors: String,         
-        tags: [ String ],                   
-        isPublished: Boolean,      
-        date: { type: Date, default: Date.now },  
-        reviews: [{               
-            reviewer: String,
-            publication: String,
-            grade: Number,
-            date: Date
-        }]
+            title: {                      
+                titleName: String,
+                type: String, 
+                required: true
+            },            
+            authorName: {
+                firstName: String,
+                lastName: String,
+            }        
+            tags: [ String ],                   
+            isPublished: Boolean,      
+            date: { type: Date, default: Date.now },  
+            reviews: [{               
+                reviewer: String,
+                publication: String,
+                grade: Number,
+                date: Date
+            }]
     })
 ```
 
@@ -358,7 +362,8 @@ And as a finished model, see how everything fits together:
         const mongoose = require("mongoose");
 
         const bookSchema = new mongoose.Schema({  
-            name: {                      
+            title: {                      
+                titleName: String,
                 type: String, 
                 required: true
             },            
@@ -440,28 +445,52 @@ Since we want to create a full name composed of the first and last name, we'll c
 
 ### STEP 3: Add the GET method and function that will return the desired result
 In the case of this virtual property, our function will return the concatenation of the first and the last name.
-> Note the use of ```.trim()``` which will eliminate excess spacing!
+> Note the use of ```.trim()``` which will eliminate excess spacing and because we are using template literals, we dont need to concatenate an empty space (i.e. X + ' ' + Y).
 ```JavaScript
     bookSchema.virtual('fullName', function() {
-        return `${this.authorName.firstName} + ' ' + ${this.authorName.lastName}`.trim();
+        return `${this.authorName.firstName} ${this.authorName.lastName}`.trim();
     });
 ```
 
 ### RESULT:
 So when you call fullName, the resulting process will get the returning concatenation of the first and last name with a space in the middle.
 ```
-    bookSchema.fullname     // call
-    Joe Smith               // result
+    bookSchema.fullname          // call
+    Joe Smith                    // result
 ```
-
-
-
-
-
 
 </dd>
 </dl>
 
+<br>
+
+## What is an instance method and how do you implement it?
+<dl>
+<dd>
+
+An *instance method*performs a specific action (i.e. serialize) on a specific instance of a model (i.e. a single document) rather than the entire model itself.
+Instance methods are the opposite of *static methods*, which perform some action on the *entire* model.
+
+In the bookSchema example, the instance method we are created is ```.serialize```. Below, we have an collection of books that we have created a bookSchema for which contains 
+a few properties. However, to to use ```.serialize``` you need to create a custom method (i.e. ```.method```) which will will create the serialization method for every instance of 
+that model. In the instance method below, the custom *serialize* method will be used to return an object that only exposes *some* of the fields we want from the underlying data.
+
+```JavaScript
+    bookSchema.methods.serialize = function() {
+        return {
+            title: this.title,
+            authorName: this.authorName,
+            fullName: this.fullName,              // note that this is a virtual outside the bookSchema
+            tags: this.tags,
+            isPublished: this.isPublished,
+            date: this.grade,
+            reviews: this.reviews
+            };
+    };
+```
+
+</dd>
+</dl>
 
 
 
