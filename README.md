@@ -4,9 +4,16 @@
 
 Here's some questions covered in the study:
 
-* [What is Mongoose](#)
-* [How do you setup and configure a Mongoose server?](#How-do-you-setup-and-configure-a-Mongoose-server)
-* [What is a Schema?](#What-is-a-Schema)
+* [What is Mongoose?](#)
+> Explains what mongoose is, what it allows you to do, and deeper technical context.
+* [How do you setup and configure a Mongoose server?](#)
+* [What is a Mongoose Schema and why do you need it?](#)
+* [How do you create a Mongoose Schema?](#)
+* [What is a Mongoose Model?](#)
+* [How do you create a Mongoose Model?](#)
+* [What are Virtuals?](#)
+* [How do you define a virtual property?](#)
+* [](#)
 
 <br>
 
@@ -155,16 +162,26 @@ This closes the app as well as disconnects from the database. This also returns 
 
 <br>
 
-## What is a Mongoose Schema?
-
+## What is a Mongoose Schema and why do you need it?
 <dl>
 <dd>
 
 A **schema** is used to define the shape (i.e. layers of properties) of documents within a collection in MongoDB. 
 
-In other words, a schema is a template that you can plug data into and save in a collection inside your database. For instance, in MongoDB Compass 
+Why do you need a schema? A schema is a template that you can plug data into and save in a collection inside your database. For instance, in MongoDB Compass 
 for each database you will see "collections". A "document" in a MongoDB "collection" is an individual instance of each 
 schema with unique values in the standard properties.
+
+
+</dd>
+</dl>
+
+<br>
+
+
+## How do you create a Mongoose Schema?
+<dl>
+<dd>
 
 To create a schema, you first need to create a "blueprint" of your document. This define the shape of the document you wish to create.  
 
