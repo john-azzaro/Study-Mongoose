@@ -372,7 +372,18 @@ And as a finished model, see how everything fits together:
 <dl>
 <dd>
 
-**Virtuals** allow 
+**Virtuals** allow you to manipulate properties in the schema object which are stored in the database.
+
+For example, suppose in our book schema example that instead of having an "authors" property, we have"authorFirstName" and "authorLastName" properties. Both of these properties accept a string as a value:
+```JavaScript
+    const bookSchema = new mongoose.Schema({
+        authorFirstName: String,
+        authorLastName: String,
+        ...
+        ... 
+    })
+```
+
 
 
 // allow us to define properties on our object that manipulate
