@@ -346,7 +346,10 @@ And as a finished model, see how everything fits together:
                 type: String, 
                 required: true
             },            
-            authorName: String,         
+            authorName: {
+                firstName: String,
+                lastName: String,
+            }        
             tags: [ String ],                   
             isPublished: Boolean,      
             date: { type: Date, default: Date.now },  
@@ -372,7 +375,7 @@ And as a finished model, see how everything fits together:
 <dl>
 <dd>
 
-A **virtual** allows you to manipulate properties in the schema object (which are stored in the database).
+A **virtual** allows you to manipulate properties in the schema object (which are stored in the database). In other words, it will let you take existing properties in your database to create a new property.
 
 For example, suppose that our bookSchema has an ```authorName``` property with an object composed of ```firstName``` and ```lastName``` properties.
 ```JavaScript
@@ -385,7 +388,8 @@ For example, suppose that our bookSchema has an ```authorName``` property with a
         ...
     });
 ```
-Now you *could* just have a property like ```full``` with a combination of the first and last, a lot of times your data isnt going to have this included... only the first and last name. This is where *virtuals* come in. What a virtual will do is take the ```firstName``` and ```lastName``` and *manipulate* those properties so that
+Now you *could* just have a property like ```fullName``` with a combination of the first and last names. However, most of the time your data isnt going to have this included. This is where *virtuals* come in. What a virtual will do is create a new property (that does not exist nor persist in the database) and *manipulate* those properties so that a new property is created for use in your application. 
+
 
 
 
