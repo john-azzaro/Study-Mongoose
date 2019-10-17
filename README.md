@@ -1,5 +1,8 @@
 # Mongoose Study
 
+## What is the Mongoose Study?
+Mongoose allows your Node.js app to talk to the MongoDB database. **Mongoose Study** is an examination of Mongoose basics, the configuration of Mongoose server, and data modeling using schemas, models, virtuals, and instance methods. Please note that due to the amount of information in this study, I've split Mongoose study into two parts, "Mongoose Study" and "Mongoose CRUD Operations".
+
 <br>
 
 Here's some questions covered in the study:
@@ -13,17 +16,15 @@ Here's some questions covered in the study:
 * [What are Virtuals?](#What-are-Virtuals)
 * [How do you define a virtual property?](#How-do-you-define-a-virtual-property)
 * [What is an instance method and how do you implement it?](#What-is-an-instance-method-and-how-do-you-implement-it)
-* [](#)
-* [](#)
+* [How do Schemas and Models work with CRUD operations?](#How-do-Schemas-and-Models-work-with-CRUD-operations)
+
 
 <br>
 
 ## What is Mongoose?
 Mongoose is a Object Data Mapper (ODM) library (or Object Modeling Modeler) for MongoDB and Node.js.
 
-Mongoose allows your Node.js app to talk to the MongoDB database.  The primary objective of the Mongoose framework is to simply the writing of validation code, business logic boiler plate, and make the code shorter and easier to work with. 
-
-In more technical terms, Mongoose provides a modeling enviroment for your data, enforcing structure while maintaing flexibility. Mongoose manages realtionships between data, providing schema validation, and is used between objects in code and the representation of those object in MongoDB.
+The primary objective of the Mongoose framework is to simplify the writing of validation code, business logic boiler plate, and make the code shorter and easier to work with. In more technical terms, Mongoose provides a modeling enviroment for your data, enforcing structure while maintaing flexibility. Mongoose manages realtionships between data, providing schema validation, and is used between objects in code and the representation of those object in MongoDB.
 
 
 <br>
@@ -497,5 +498,13 @@ method can make sure that the password property is left out.
 </dd>
 </dl>
 
+<br>
 
+## How do Schemas and Models work with CRUD operations?
+<dl>
+<dd>
 
+Mongoose uses built-in methods to interact with the database layer. [Click here for Mongoose CRUD operations](https://github.com/john-azzaro/Study-Mongoose-CRUD-Operations "Mongoose CRUD Operations").
+
+</dd>
+</dl>
