@@ -1,7 +1,7 @@
-# Mongoose Study
+# Mongoose Configuration and Data Modeling Study
 
-## What is the Mongoose Study?
-Mongoose allows your Node.js app to talk to the MongoDB database. **Mongoose Study** is an examination of Mongoose basics, the configuration of Mongoose server, and data modeling using schemas, models, virtuals, and instance methods. Please note that due to the amount of information in this study, I've split Mongoose study into two parts, "Mongoose Study" and "Mongoose CRUD Operations".
+## What is the Mongoose Configuration and Data Modeling Study?
+Mongoose allows your Node.js app to talk to the MongoDB database. **Mongoose Configuration and Data Modeling Study** is an examination of Mongoose basics, the configuration of Mongoose server, and data modeling using schemas, models, virtuals, and instance methods. Please note that due to the amount of information in this study, I've split Mongoose study into two parts, "Mongoose Study" and "Mongoose CRUD Operations". Additionally, I've created speerate studies that address topics such as [**schemas**](https://github.com/john-azzaro/Study-Mongoose-Schemas "schemas") seperately for more in-depth examination.
 
 <br>
 
