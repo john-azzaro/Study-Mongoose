@@ -160,6 +160,22 @@ This closes the app as well as disconnects from the database. This also returns 
 ```
 </dd>
 
+### STEP 7: Create direct server.js call block:
+-------
+<dd>
+
+In the event that the application is called using ```node server.js``` or something to that effect, this block will run as a contingency. 
+```JavaScript
+    if (require.main === module) {                                                             
+        runServer(DATABASE_URL).catch(err => console.error(err));
+    }
+
+```
+
+
+
+</dd>
+
 </dl>
 
 <br>
