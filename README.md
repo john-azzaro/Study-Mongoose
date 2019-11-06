@@ -463,10 +463,11 @@ Since we want to create a full name composed of the first and last name, we'll c
 ```
 
 ### STEP 3: Add the GET method and function that will return the desired result
-In the case of this virtual property, our function will return the concatenation of the first and the last name.
+In the case of this virtual property, our function will return the concatenation of the first and the last name. To do this, we need to chain the ```.get``` method a callback
+with the desired manipulation of the properties.
 > Note the use of ```.trim()``` which will eliminate excess spacing and because we are using template literals, we dont need to concatenate an empty space (i.e. X + ' ' + Y).
 ```JavaScript
-    bookSchema.virtual('fullName', function() {
+    bookSchema.virtual('fullName').get( function() {
         return `${this.authorName.firstName} ${this.authorName.lastName}`.trim();
     });
 ```
